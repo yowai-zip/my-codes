@@ -1,0 +1,15 @@
+<h2>Sign up</h2>
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+    <input type="submit" value="Sign up">
+</form>
